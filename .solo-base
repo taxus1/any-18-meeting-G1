@@ -1,0 +1,27 @@
+# base.conf —— 基座描述文件（solo 多基座注册表读取；键=值，勿加空格）
+BASE_ID=go-gin-m
+STACK_LABEL=Go 1.22 / Gin / GORM / MySQL + Redis
+LANG=go
+FRAMEWORK=gin
+ORM=gorm
+WEIGHT=medium
+
+# 容器镜像（Go 工具链，见 runtime/docker/Dockerfile.benzhi-go）
+IMAGE=adminfather/benzhi-claude-code:go
+
+# 工程结构
+PKG_ROOT=somepro
+SRC_DIR=.
+# 验收用例注入目录；Go 走 go test（host_verify 的 Go 分支）
+TEST_INJECT_DIR=internal/acceptance
+TEST_LANG=go
+
+# 资源 / 建表（Go 无 yml，配置全走环境变量，APP_YML 留空）
+APP_YML=
+SCHEMA_DIR=doc/schema
+DEMO_SCHEMA=doc/schema/demo.sql
+
+# 环境
+COMPOSE_FILE=docker-compose.yml
+DB_REQUIRED=1
+REDIS_REQUIRED=1
